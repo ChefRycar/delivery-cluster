@@ -110,6 +110,11 @@ module DeliveryCluster
       def ipaddress(node)
         @use_private_ip_for_ssh ? node['ec2']['local_ipv4'] : node['ec2']['public_ipv4']
       end
+
+      def public_ipaddress(node)
+        node['ec2']['public_ipv4']
+      end
+      
     end
   end
 end

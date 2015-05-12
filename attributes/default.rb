@@ -39,6 +39,7 @@ default['delivery_cluster']['aws']['subnet_id']               = nil
 default['delivery-cluster']['aws']['bootstrap_proxy']         = ENV['HTTPS_PROXY'] || ENV['HTTP_PROXY']
 default['delivery_cluster']['aws']['chef_config']             = nil
 default['delivery-cluster']['aws']['use_private_ip_for_ssh']  = false
+default['delivery-cluster']['aws']['use_public_ip_for_delivery_fqdn']  = false
 
 # SSH Driver Attributes
 default['delivery-cluster']['ssh']['key_file']                = nil

@@ -49,6 +49,11 @@ module DeliveryCluster
       provisioning.ipaddress(node)
     end
 
+    # Explicit Public IP return if needed
+    def get_public_ip(node)
+      provisioning.public_ipaddress(node)
+    end
+
     # delivery-ctl needs to be executed with elevated privileges
     def delivery_ctl
       if node['delivery-cluster']['aws']['ssh_username'] == 'root'
@@ -155,7 +160,8 @@ module DeliveryCluster
     end
 
     def delivery_server_fqdn
-      @delivery_server_fqdn ||= component_fqdn('delivery')
+      @delivery_server_fqdn ||
+      node['delivery-cluster']['aws']['use_public_ip_for_delivery_fqdn'] ? get_public_ip(component_node('delivery')) : component_fqdn('delivery')
     end
 
     def analytics_server_fqdn
