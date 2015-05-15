@@ -237,7 +237,6 @@ module DeliveryCluster
           'delivery' => { 'organization' => node['delivery-cluster']['chef-server']['organization'] },
           'api_fqdn' => chef_server_fqdn,
           'store_keys_databag' => false
-          }
         }
       }
       @chef_server_attributes = Chef::Mixin::DeepMerge.hash_only_merge(@chef_server_attributes, analytics_server_attributes)
