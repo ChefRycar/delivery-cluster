@@ -236,9 +236,7 @@ module DeliveryCluster
         'chef-server-12' => {
           'delivery' => { 'organization' => node['delivery-cluster']['chef-server']['organization'] },
           'api_fqdn' => chef_server_fqdn,
-          'store_keys_databag' => false,
-          'plugin' => {
-            'opscode-reporting' => false
+          'store_keys_databag' => false
           }
         }
       }
